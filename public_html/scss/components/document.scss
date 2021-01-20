@@ -1,3 +1,20 @@
+@import "../variables";
+
 html, body {
   margin: 0;
+}
+
+li,
+p,
+h1, h2, h3, h4, h5, h6 {
+  font-family: $main-font;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.underline {
+  text-decoration: underline;
 }

@@ -1,6 +1,22 @@
 version: '3'
 
 services:
+  pma:
+    container_name: it_2021_pma
+    image: phpmyadmin:5.0.4
+    environment:
+      MYSQL_USER: it2021
+      MYSQL_PASSWORD: it2021
+    ports:
+      - 4001:80
+
+  mariadb:
+    container_name: it_2021_db
+    image: mariadb:10.5.8
+    environment:
+      MYSQL_USER: it2021
+      MYSQL_PASSWORD: it2021
+
   web:
     container_name: it_2021
     image: webdevops/php-apache:8.0

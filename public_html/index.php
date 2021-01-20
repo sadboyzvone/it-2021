@@ -10,7 +10,11 @@ $requestUri = $_SERVER['REQUEST_URI'];
 switch ($requestUri) {
     case '/index.php':
     case '/':
-        IndexController::index();
+        StaticPageController::homepage();
+        break;
+    case '/about':
+        TitleService::setCurrentTitle('About us');
+        StaticPageController::aboutUs();
         break;
     default:
         ErrorController::error();

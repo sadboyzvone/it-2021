@@ -1,0 +1,44 @@
+@import "../../variables";
+
+.about-us {
+  #description-wrapper {
+    display: flex;
+    justify-content: space-around;
+
+    @media all and (max-width: 765px) {
+      flex-direction: column;
+    }
+
+    #image-wrapper {
+      padding: 20px;
+      img {
+        width: 100%;
+      }
+    }
+
+    #description {
+      p.list-caption {
+        font-style: italic;
+        margin: 0;
+      }
+
+      ul {
+        list-style-image: url("/images/list-icon.png");
+      }
+
+      #shipping-costs {
+        width: 100%;
+        border: 2px solid $pink;
+
+        caption {
+          font-family: $main-font;
+          font-size: 1.25rem;
+        }
+
+        tr, th, td {
+          border: 2px solid $pink;
+        }
+      }
+    }
+  }
+}
