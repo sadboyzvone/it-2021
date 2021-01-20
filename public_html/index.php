@@ -16,6 +16,10 @@ switch ($requestUri) {
         TitleService::setCurrentTitle('About us');
         StaticPageController::aboutUs();
         break;
+    case '/terms-of-service':
+        TitleService::setCurrentTitle('Terms of Service');
+        StaticPageController::termsOfService();
+        break;
     default:
         ErrorController::error();
         break;

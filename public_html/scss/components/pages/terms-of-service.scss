@@ -1,0 +1,12 @@
+@import "../../variables";
+
+.terms-of-service {
+  a {
+    font-family: $main-font;
+    text-decoration: none;
+    color: darken($pink, 20%);
+    &:hover {
+      color: darken($pink, 70%);
+    }
+  }
+}

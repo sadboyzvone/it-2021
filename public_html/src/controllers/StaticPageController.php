@@ -18,4 +18,11 @@ class StaticPageController {
     public static function aboutUs() {
         ThemeManager::render('about');
     }
+
+    /**
+     * Renders the TOS page.
+     */
+    public static function termsOfService() {
+        ThemeManager::render('terms-of-service');
+    }
 }
