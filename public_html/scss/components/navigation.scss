@@ -77,3 +77,12 @@ header {
 
   }
 }
+
+footer {
+  background-color: $pink;
+  padding: 20px;
+  p {
+    margin: 0;
+    text-align: center;
+  }
+}

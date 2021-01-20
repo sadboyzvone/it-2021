@@ -38,6 +38,63 @@
         tr, th, td {
           border: 2px solid $pink;
         }
+
+        th {
+          color: $white;
+          background-color: darken($pink, 30%);
+        }
+
+        tr {
+          td {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  #owner-wrapper {
+    #information-wrapper {
+      display: flex;
+      justify-content: space-between;
+
+      @media all and (max-width: 1200px) {
+        flex-direction: column-reverse;
+      }
+
+      #owner-image-wrapper {
+        img {
+          width: 100%;
+          max-width: 460px;
+          margin: 0 auto;
+          display: block;
+        }
+      }
+
+      #owner-description {
+        span {
+          color: darken($pink, 20%);
+        }
+        #contact-information {
+          ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            li {
+              margin: 0 10px;
+
+              &:first-child{
+                margin-left: 0;
+              }
+
+              a {
+                img {
+                  width: 32px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
