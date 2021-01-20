@@ -4,21 +4,28 @@ services:
   pma:
     container_name: it_2021_pma
     image: phpmyadmin:5.0.4
+    restart: always
+    depends_on:
+      - db
     environment:
-      MYSQL_USER: it2021
-      MYSQL_PASSWORD: it2021
+      PMA_HOST: db
+      PMA_USER: it2021
+      PMA_PASSWORD: it2021
     ports:
       - 4001:80
 
-  mariadb:
-    container_name: it_2021_db
-    image: mariadb:10.5.8
+  db:
+    container_name: it_2021_database
+    image: mysql:8.0.23
+    restart: always
     environment:
+      MYSQL_DATABASE: animu_weaboo_shop
       MYSQL_USER: it2021
       MYSQL_PASSWORD: it2021
+      MYSQL_ROOT_PASSWORD: it2021
 
   web:
-    container_name: it_2021
+    container_name: it_2021_web
     image: webdevops/php-apache:8.0
     working_dir: /app
     ports:
