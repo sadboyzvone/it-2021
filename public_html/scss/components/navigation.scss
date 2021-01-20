@@ -79,10 +79,20 @@ header {
 }
 
 footer {
+  display: flex;
+  justify-content: space-between;
   background-color: $pink;
   padding: 20px;
   p {
     margin: 0;
+  }
+  a {
+    font-family: $main-font;
     text-align: center;
+    text-decoration: none;
+    color: darken($pink, 20%);
+    &:hover {
+      color: darken($pink, 70%);
+    }
   }
 }

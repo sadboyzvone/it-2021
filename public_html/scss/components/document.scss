@@ -8,6 +8,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
+  .error,
   .container {
     flex: 1 0 auto;
   }
