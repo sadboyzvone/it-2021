@@ -1,0 +1,27 @@
+{
+  "name": "it-2021",
+  "version": "1.0.0",
+  "description": "My project for the Internet technologies class",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sadboyzvone/it-2021.git"
+  },
+  "author": "Zvonimir Rudinski",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/sadboyzvone/it-2021/issues"
+  },
+  "homepage": "https://github.com/sadboyzvone/it-2021#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sass-glob": "^1.1.0"
+  }
+}

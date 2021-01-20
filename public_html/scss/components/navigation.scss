@@ -1,0 +1,79 @@
+@import "../variables";
+
+header {
+  nav {
+    background-color: $pink;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+      display: flex;
+      align-items: center;
+
+      &-image {
+        width: 64px;
+        border-radius: 100%;
+        padding: 10px;
+      }
+
+      color: darken($pink, 70%);
+      font-family: $main-font;
+      text-decoration: none;
+      font-size: 3rem;
+      transition: color 250ms;
+
+      &:hover {
+        color: darken($pink, 20%);
+      }
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      li {
+        margin: 0 5px;
+
+        a {
+          padding: 5px 5px 0;
+          font-family: $main-font;
+          color: darken($pink, 20%);
+          text-decoration: none;
+
+          &:hover {
+            color: darken($pink, 70%);
+            border-bottom: 2px solid darken($pink, 20%);
+          }
+        }
+      }
+    }
+
+    // Media query.
+    @media all and (max-width: 377px) {
+      .logo {
+        flex-direction: column;
+      }
+    }
+    @media all and (max-width: 480px) {
+      ul {
+        flex-direction: column;
+        margin-bottom: 1rem;
+      }
+    }
+    @media all and (max-width: 857px) {
+      flex-direction: column;
+    }
+    @media all and (max-width: 931px) {
+      .logo {
+        font-size: 2rem;
+      }
+    }
+    @media all and (max-width: 1004px) and (min-width: 932px) {
+      .logo {
+        font-size: 2.5rem;
+      }
+    }
+
+  }
+}

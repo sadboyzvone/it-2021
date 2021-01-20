@@ -14,6 +14,7 @@ class ErrorController {
     public static function error(int $errorCode = HTTP_NOT_FOUND) {
         http_response_code($errorCode);
         ThemeManager::render("error/$errorCode");
+        die();
     }
 
 }

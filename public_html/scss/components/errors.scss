@@ -1,0 +1,17 @@
+@import "../variables";
+
+.error {
+  &-404 {
+    h1 {
+      text-align: center;
+      font-family: $main-font;
+      font-size: 4rem;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 90%;
+      max-width: 850px;
+    }
+  }
+}
