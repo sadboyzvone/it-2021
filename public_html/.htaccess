@@ -1,0 +1,34 @@
+#Disable access to .htaccess file
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
+#Disable Directory listing (indexes)
+Options All -Indexes
+#Compress all file types
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+#File Caching
+<FilesMatch ".(png|jpeg)$">
+    Header set Cache-Control "public,proxy-revalidate, max-age=3600"
+</FilesMatch>
+#File Caching
+#Redirect all to index.php
+# Turn rewriting on
+Options +FollowSymLinks
+RewriteEngine On
+# Redirect requests to index.php
+RewriteCond %{REQUEST_URI} !=/index.php
+RewriteCond %{REQUEST_URI} !.*\.png$ [NC]
+RewriteCond %{REQUEST_URI} !.*\.jpg$ [NC]
+RewriteCond %{REQUEST_URI} !.*\.css$ [NC]
+RewriteCond %{REQUEST_URI} !.*\.gif$ [NC]
+RewriteCond %{REQUEST_URI} !.*\.js$ [NC]
+RewriteRule .* /index.php

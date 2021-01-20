@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    container_name: it_2021
+    image: webdevops/php-apache:8.0
+    working_dir: /app
+    ports:
+      - 4000:80
+    volumes:
+      - ./public_html:/app
