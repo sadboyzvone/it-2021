@@ -5,7 +5,7 @@ const sassGlob = require('gulp-sass-glob');
 
 gulp.task('build:sass', function () {
     return gulp
-        .src('public_html/scss/**/*.scss')
+        .src('public_html/scss/style.scss')
         .pipe(sassGlob())
         .pipe(sass({}).on('error', sass.logError))
         .pipe(cleanCSS())
