@@ -24,4 +24,5 @@
                 <li><a href="/terms-of-service">Terms of Service</a></li>
             </ul>
         </nav>
+        <?php MessengerService::printMessages(); ?>
     </header>

@@ -76,6 +76,17 @@ header {
     }
 
   }
+  .messages {
+    margin: 20px;
+    padding: 10px;
+    background-color: $pink;
+    border-radius: 5px;
+    border: 1px solid darken($pink, 30%);
+    .message {
+      padding: 10px;
+      color: darken($pink, 30%);
+    }
+  }
 }
 
 footer {
@@ -91,6 +102,7 @@ footer {
     text-align: center;
     text-decoration: none;
     color: darken($pink, 20%);
+    margin: 0 10px;
     &:hover {
       color: darken($pink, 70%);
     }

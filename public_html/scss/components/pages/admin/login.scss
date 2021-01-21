@@ -1,0 +1,18 @@
+@import "../../../variables";
+
+.admin-login {
+  form {
+    margin: 0 auto;
+    text-align: center;
+    input {
+      margin: 0 0 20px 0;
+      width: 300px;
+
+      &#submit {
+        background-color: $pink;
+        padding: 3px;
+        font-family: $main-font;
+      }
+    }
+  }
+}
