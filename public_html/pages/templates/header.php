@@ -24,7 +24,5 @@
                 <li><a href="/terms-of-service">Terms of Service</a></li>
             </ul>
         </nav>
-        <?php
-        print str_replace(ROOT, '/','/app/uploads/51nqVXTW3qL._AC_SY450_.jpg');
-        MessengerService::printMessages(); ?>
+        <?php MessengerService::printMessages(); ?>
     </header>

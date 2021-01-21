@@ -94,6 +94,17 @@ footer {
   justify-content: space-between;
   background-color: $pink;
   padding: 20px;
+
+  @media all and (max-width: 467px) {
+    flex-direction: column;
+    p {
+      text-align: center;
+    }
+    div {
+      margin: 0 auto;
+    }
+  }
+
   p {
     margin: 0;
   }

@@ -58,7 +58,7 @@ class AdminController {
             }
             // Upload the file.
             $filename = str_replace(ROOT, '/', UPLOADS_FOLDER . $image['name']);
-            if (!move_uploaded_file($image['tmp_name'] ?? '', $filename)) {
+            if (!move_uploaded_file($image['tmp_name'] ?? '', UPLOADS_FOLDER . $image['name'])) {
                 MessengerService::addMessage('Failed to upload the image.');
                 RedirectionService::redirect('admin/add');
             }
@@ -81,6 +81,22 @@ class AdminController {
             }
         }
         ThemeManager::render('admin/add');
+    }
+
+    public static function delete() {
+        // Get the PID.
+        [$pid] = RequestService::getFromGet(['p']);
+        if (is_numeric($pid)) {
+            $statement = DatabaseService::getInstance()->prepare('DELETE FROM products WHERE pid = :pid');
+            $statement->bindParam(':pid', $pid);
+            if ($statement->execute()) {
+                MessengerService::addMessage('Product deleted successfully.');
+            }
+            else {
+                MessengerService::addMessage('Failed to delete the product.');
+            }
+        }
+        RedirectionService::redirect('admin/dashboard');
     }
 
 }

@@ -14,8 +14,8 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 // Route the URI.
 // Check if we have a admin route.
 if ((dirname($requestUri) === '/admin') || ($requestUri === '/admin')) {
-    if (!AuthService::isAuthenticated()) {
-        RedirectionService::redirect('admin/login');
+    if (!AuthService::isAuthenticated() && basename($requestUri) !== 'login') {
+        ErrorController::error(HTTP_UNAUTHORIZED);
     }
     // Admin actions.
     switch (basename($requestUri)) {
@@ -24,6 +24,9 @@ if ((dirname($requestUri) === '/admin') || ($requestUri === '/admin')) {
             break;
         case 'add':
             AdminController::addProduct();
+            break;
+        case 'delete':
+            AdminController::delete();
             break;
         case 'dashboard':
             AdminController::dashboard();;
@@ -36,8 +39,7 @@ if ((dirname($requestUri) === '/admin') || ($requestUri === '/admin')) {
             RedirectionService::redirect();
             break;
         default:
-            var_dump($requestUri);
-            ErrorController::error(HTTP_UNAUTHORIZED);
+            ErrorController::error();
             break;
     }
 }
