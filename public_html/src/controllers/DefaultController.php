@@ -25,4 +25,16 @@ class DefaultController {
     public static function termsOfService() {
         ThemeManager::render('terms-of-service');
     }
+
+    /**
+     * Renders the product page.
+     */
+    public static function product() {
+        [$pid] = RequestService::getFromGet(['p']);
+        if (!is_numeric($pid)) {
+            RedirectionService::redirect();
+        }
+
+        ThemeManager::render('product');
+    }
 }

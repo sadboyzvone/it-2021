@@ -19,7 +19,7 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/products">Products</a></li>
-                <li><a href="/cart">Cart</a></li>
+                <!--<li><a href="/cart">Cart</a></li>-->
                 <li><a href="/about">About us</a></li>
                 <li><a href="/terms-of-service">Terms of Service</a></li>
             </ul>

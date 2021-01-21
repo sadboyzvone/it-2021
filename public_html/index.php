@@ -61,6 +61,9 @@ else {
             TitleService::setCurrentTitle('Terms of Service');
             DefaultController::termsOfService();
             break;
+        case '/product':
+            DefaultController::product();
+            break;
         default:
             ErrorController::error();
             break;
