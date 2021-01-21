@@ -43,6 +43,7 @@ if ((dirname($requestUri) === '/admin') || ($requestUri === '/admin')) {
             RedirectionService::redirect();
             break;
         default:
+            TitleService::setCurrentTitle('Not found');
             ErrorController::error();
             break;
     }
@@ -64,7 +65,12 @@ else {
         case '/product':
             DefaultController::product();
             break;
+        case '/products':
+            TitleService::setCurrentTitle('Products');
+            DefaultController::products();
+            break;
         default:
+            TitleService::setCurrentTitle('Not found');
             ErrorController::error();
             break;
     }

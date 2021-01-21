@@ -6,6 +6,9 @@
     <h1 class="center">Welcome to the Animu Weaboo Shop!</h1>
     <img id="excited-image" src="/images/excited.png" alt="Excited anime girl">
     <p class="center">Today is: <?= date('d/m/Y') ?></p>
+    <?php
+        if (!empty($products)) {
+    ?>
     <h2>Newest Products</h2>
     <div id="products-wrapper">
         <?php
@@ -18,6 +21,7 @@
         </div>
         <?php
             }
+        }
         ?>
     </div>
 </div>

@@ -37,4 +37,11 @@ class DefaultController {
 
         ThemeManager::render('product');
     }
+
+    /**
+     * Renders the products page.
+     */
+    public static function products() {
+        ThemeManager::render('products');
+    }
 }
