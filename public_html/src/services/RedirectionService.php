@@ -16,4 +16,9 @@ class RedirectionService {
         die();
     }
 
+    public static function refresh() {
+        header('Location: ' . $_SERVER['REQUEST_URI']);
+        die();
+    }
+
 }

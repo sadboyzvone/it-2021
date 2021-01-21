@@ -26,7 +26,10 @@ if ((dirname($requestUri) === '/admin') || ($requestUri === '/admin')) {
             AdminController::addProduct();
             break;
         case 'delete':
-            AdminController::delete();
+            AdminController::deleteProduct();
+            break;
+        case 'update':
+            AdminController::updateProduct();
             break;
         case 'dashboard':
             AdminController::dashboard();;

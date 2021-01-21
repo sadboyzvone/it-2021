@@ -47,6 +47,10 @@ class AdminController {
             [$name, $description, $price] = RequestService::getFromPost(['name', 'description', 'price']);
             $image = RequestService::getFile('image');
             // Validate image.
+            if (empty($image['tmp_name'])) {
+                MessengerService::addMessage('Please upload a valid image.');
+                RedirectionService::redirect('admin/add');
+            }
             if (getimagesize($image['tmp_name'] ?? '') === FALSE) {
                 MessengerService::addMessage('Please upload a valid image.');
                 RedirectionService::redirect('admin/add');
@@ -83,7 +87,68 @@ class AdminController {
         ThemeManager::render('admin/add');
     }
 
-    public static function delete() {
+    public static function updateProduct() {
+        [$pid] = RequestService::getFromGet(['p']);
+        if (!is_numeric($pid)) {
+            RedirectionService::redirect('admin/dashboard');
+        }
+
+        if (RequestService::isSubmitted()) {
+            // Get everything.
+            [$name, $description, $price] = RequestService::getFromPost(['name', 'description', 'price']);
+            $image = RequestService::getFile('image');
+            // Validate image.
+            if (!empty($image['tmp_name'])) {
+                if (getimagesize($image['tmp_name']) === FALSE) {
+                    $image = NULL;
+                }
+            }
+            else {
+                $image = NULL;
+            }
+            // Validate everything else.
+            if (empty($name) || empty($description) || !is_numeric($price)) {
+                MessengerService::addMessage('Please check your input and try again.');
+                RedirectionService::refresh();
+            }
+            // Upload the file.
+            if (!is_null($image)) {
+                $filename = str_replace(ROOT, '/', UPLOADS_FOLDER . $image['name']);
+                if (!move_uploaded_file($image['tmp_name'] ?? '', UPLOADS_FOLDER . $image['name'])) {
+                    MessengerService::addMessage('Failed to upload the image.');
+                    RedirectionService::refresh();
+                }
+                $statement = DatabaseService::getInstance()->prepare('UPDATE products SET image=:image WHERE pid=:pid');
+                $statement->bindParam(':image', $filename);
+                $statement->bindParam(':pid', $pid);
+                if (!$statement->execute()) {
+                    MessengerService::addMessage('Failed to upload the image.');
+                    RedirectionService::refresh();
+                }
+            }
+            // Sanitize.
+            $name = htmlspecialchars($name);
+            $description = htmlspecialchars($description);
+            $price = (float) $price;
+            // Input to the database.
+            $statement = DatabaseService::getInstance()->prepare('UPDATE products SET name=:name,description=:description,price=:price WHERE pid=:pid');
+            $statement->bindParam(':name', $name);
+            $statement->bindParam(':price', $price);
+            $statement->bindParam(':description', $description);
+            $statement->bindParam(':pid', $pid);
+
+            if ($statement->execute()) {
+                MessengerService::addMessage("You updated '$name'!");
+                RedirectionService::redirect('admin/dashboard');
+            }
+            else {
+                MessengerService::addMessage('Failed to update the database.');
+            }
+        }
+        ThemeManager::render('admin/update');
+    }
+
+    public static function deleteProduct() {
         // Get the PID.
         [$pid] = RequestService::getFromGet(['p']);
         if (is_numeric($pid)) {

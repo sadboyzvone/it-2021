@@ -1,7 +1,16 @@
 @import "../../../variables";
 
-.admin-add {
+.admin-update {
+  #update-wrapper {
+    display: flex;
+    justify-content: space-between;
+
     textarea {
       max-width: 100%;
     }
+
+    img {
+      max-width: 500px;
+    }
+  }
 }

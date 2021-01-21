@@ -1,5 +1,4 @@
 <?php require_once ROOT . 'pages/templates/header.php'; ?>
-<?php MessengerService::printMessages(); ?>
 <div class="container admin admin-add">
     <h1 class="right">Add new product</h1>
     <form action="/admin/add" method="post" enctype="multipart/form-data">
@@ -27,6 +26,7 @@
         <br>
         <br>
         <input type="submit" name="submit" value="Add">
+        <a href="/admin/dashboard">Back</a>
     </form>
 </div>
 <?php require_once ROOT . 'pages/templates/footer.php'; ?>
