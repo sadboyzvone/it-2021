@@ -33,6 +33,22 @@ class AuthService {
     }
 
     /**
+     * Get the current user.
+     *
+     * @return string
+     *   Current username.
+     */
+    public static function getCurrentUser(): string {
+        if (!self::isAuthenticated()) {
+            return '';
+        }
+        else {
+            self::$currentUser = htmlspecialchars($_SESSION['currentUser']);
+            return self::$currentUser;
+        }
+    }
+
+    /**
      * Try to login.
      *
      * @param $username

@@ -14,15 +14,19 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 // Route the URI.
 // Check if we have a admin route.
 if ((dirname($requestUri) === '/admin') || ($requestUri === '/admin')) {
+    if (!AuthService::isAuthenticated()) {
+        RedirectionService::redirect('admin/login');
+    }
     // Admin actions.
     switch (basename($requestUri)) {
         case 'admin':
-            if (!AuthService::isAuthenticated()) {
-                RedirectionService::redirect('admin/login');
-            }
-            else {
-                RedirectionService::redirect();
-            }
+            RedirectionService::redirect('admin/dashboard');
+            break;
+        case 'add':
+            AdminController::addProduct();
+            break;
+        case 'dashboard':
+            AdminController::dashboard();;
             break;
         case 'login':
             AdminController::login();

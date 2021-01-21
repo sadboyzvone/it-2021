@@ -16,7 +16,7 @@ class RequestService {
      * @return array
      *   Array.
      */
-    #[Pure] public static function getFromGet(array $keys = []): array {
+    public static function getFromGet(array $keys = []): array {
         return self::getFromArray($_GET, $keys);
     }
 
@@ -29,8 +29,21 @@ class RequestService {
      * @return array
      *   Array.
      */
-    #[Pure] public static function getFromPost(array $keys = []): array {
+    public static function getFromPost(array $keys = []): array {
         return self::getFromArray($_POST, $keys);
+    }
+
+    /**
+     * Get file.
+     *
+     * @param string $name
+     *   File POST name.
+     *
+     * @return array
+     *   File info.
+     */
+    public static function getFile(string $name = ''): array {
+        return $_FILES[$name] ?? [];
     }
 
     /**
