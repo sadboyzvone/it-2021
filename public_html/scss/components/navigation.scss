@@ -96,8 +96,9 @@ footer {
   padding: 20px;
 
   .copy {
-    transform: rotate(180deg) translateY(-2px);
+    transform: rotateY(180deg);
     display:inline-block;
+    font-size: 1.25rem;
   }
 
   @media all and (max-width: 467px) {
