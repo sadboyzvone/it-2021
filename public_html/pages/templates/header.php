@@ -5,6 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Animu Weaboo Shop, your one-stop shop for everything anime!">
+    <meta name="keywords" content="anime,shop,weeb,weaboo">
+    <meta name="author" content="Zvonimir Rudinski">
+    <meta name="robots" content="follow">
     <link rel="shortcut icon" href="/images/favicon.jpg" type="image/jpeg">
     <link rel="stylesheet" href="/css/style.css">
     <title>Animu Weeabo Shop | <?= TitleService::resolve() ?></title>
