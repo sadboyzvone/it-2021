@@ -22,7 +22,7 @@ class AdminController {
                 // Set the current active user.
                 MessengerService::addMessage('You are now logged in.');
                 AuthService::setCurrentUser($username);
-                RedirectionService::redirect();
+                RedirectionService::redirect('admin/dashboard');
             }
             else {
                 MessengerService::addMessage('Invalid credentials.');

@@ -6,4 +6,11 @@
     margin: 0 auto;
     max-width: 100%;
   }
+  #products-wrapper {
+    display: flex;
+    justify-content: space-between;
+    img {
+      max-width: 400px;
+    }
+  }
 }

@@ -9,5 +9,5 @@ require_once 'services/RedirectionService.php';
 require_once 'services/AuthService.php';
 
 require_once 'controllers/ErrorController.php';
-require_once 'controllers/StaticPageController.php';
+require_once 'controllers/DefaultController.php';
 require_once 'controllers/AdminController.php';

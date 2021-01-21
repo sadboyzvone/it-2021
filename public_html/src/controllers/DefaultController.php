@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Index controller takes care of the static pages.
+ * Default controller takes care of the non-admin pages.
  */
-class StaticPageController {
+class DefaultController {
 
     /**
      * Renders the homepage.

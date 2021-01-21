@@ -9,9 +9,7 @@
       width: 300px;
 
       &#submit {
-        background-color: $pink;
-        padding: 3px;
-        font-family: $main-font;
+        @include link();
       }
     }
   }

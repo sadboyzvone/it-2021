@@ -17,6 +17,7 @@ if ((dirname($requestUri) === '/admin') || ($requestUri === '/admin')) {
     if (!AuthService::isAuthenticated() && basename($requestUri) !== 'login') {
         ErrorController::error(HTTP_UNAUTHORIZED);
     }
+    TitleService::setCurrentTitle('Administration');
     // Admin actions.
     switch (basename($requestUri)) {
         case 'admin':
@@ -50,15 +51,15 @@ else {
     switch ($requestUri) {
         case '/index.php':
         case '/':
-            StaticPageController::homepage();
+            DefaultController::homepage();
             break;
         case '/about':
             TitleService::setCurrentTitle('About us');
-            StaticPageController::aboutUs();
+            DefaultController::aboutUs();
             break;
         case '/terms-of-service':
             TitleService::setCurrentTitle('Terms of Service');
-            StaticPageController::termsOfService();
+            DefaultController::termsOfService();
             break;
         default:
             ErrorController::error();
