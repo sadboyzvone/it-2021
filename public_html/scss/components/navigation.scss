@@ -95,6 +95,11 @@ footer {
   background-color: $pink;
   padding: 20px;
 
+  .copy {
+    transform: rotate(180deg) translateY(-2px);
+    display:inline-block;
+  }
+
   @media all and (max-width: 467px) {
     flex-direction: column;
     p {

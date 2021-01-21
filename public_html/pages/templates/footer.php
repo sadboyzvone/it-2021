@@ -1,5 +1,5 @@
     <footer>
-        <p>Copyleft &copy; <?= date('Y') ?> Zvonimir Rudinski</p>
+        <p>Copyleft <span class="copy">&copy;</span> <?= date('Y') ?> Zvonimir Rudinski</p>
         <div>
         <?php
             if (AuthService::isAuthenticated()) {
