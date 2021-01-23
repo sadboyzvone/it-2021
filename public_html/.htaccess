@@ -16,8 +16,8 @@ AddOutputFilterByType DEFLATE application/rss+xml
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/x-javascript
 #File Caching
-<FilesMatch ".(png|jpeg)$">
-    Header set Cache-Control "public,proxy-revalidate, max-age=3600"
+<FilesMatch ".(png|jpeg|css|jpg)$">
+    Header set Cache-Control "public,proxy-revalidate, max-age=31536000"
 </FilesMatch>
 #File Caching
 #Redirect all to index.php
