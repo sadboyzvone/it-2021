@@ -633,4 +633,5 @@
         an absolute waiver of all civil liability in connection with the
         Program, unless a warranty or assumption of liability accompanies a
         copy of the Program in return for a fee.</p>
+</div>
 <?php require_once ROOT . 'pages/templates/footer.php'; ?>
